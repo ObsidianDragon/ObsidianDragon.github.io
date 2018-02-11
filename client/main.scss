@@ -1,0 +1,569 @@
+$orange: #FFA000;
+$president-color:  #1B6DB2;
+$president-candidate-color: lighten(#1B6DB2, 25%);
+$chancellor-candidate-color: lighten(#797F06, 20%);
+$chancellor-color: #797F06;
+$dead-candidate-color: lighten(#BF3630, 30%);
+$dead-color: #BF3630;
+$liberal-color: #03AA8C;
+$fascist-color: #f76b36;
+
+* {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+}
+
+body {
+  padding-left: calc(50% - 190px);
+  padding-right: calc(50% - 190px);
+  display: block;
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.orange {
+  &:hover {
+    color: $orange;
+  }
+}
+
+.bold {
+  // font-weight: 400;
+  color: $orange;
+}
+
+.link {
+  color: #999999;
+  &:hover {
+    color: $orange;
+  }
+}
+
+h1 {
+  font-size: 1.6em;
+  margin: 25% 0 1.5em 0;
+}
+
+.demoinfo {
+  padding-top: 10px;
+  font-size: 0.7em;
+}
+
+hr {
+  width: 90%;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 2em auto;
+}
+
+
+.mid-page-break {
+  width: 25%;
+}
+
+.top-line {
+  // margin: 1em 0 0 0;
+}
+
+b {
+  font-weight: 400;
+}
+
+button {
+	font-size: 1em;
+	background-color: white;
+	border: 1px solid #999;
+  border-radius: 4px;
+	padding: 10px 28px;
+	outline: none;
+	margin: 5px;
+	cursor: pointer;
+  &:disabled {
+    border: 1px solid #ccc;
+    cursor: default;
+  }
+  &:hover {
+    border: 1px solid $orange;
+  }
+}
+
+.demo-button {
+  background-color: $orange;
+}
+
+.close {
+  background-color: red;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.playerlist {
+  list-style-type: none;
+  display: block;
+  width: 70%;
+  padding-left: 0;
+  li {
+    border-left: 4px #eee solid;
+    background-color: #eee;
+    padding: 5px 15px;
+    margin: 3px;
+    text-align: left;
+  }
+  span {
+    margin-left: 10px;
+  }
+  .current {
+    border-left: 4px #00DB11 solid;
+  }
+  .remove-button {
+    display: inline-block;
+    float: right;
+    cursor: default;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+input[type=text] {
+	font-size: 1em;
+	margin: 5px;
+	padding: 10px 18px;
+	border: 1px solid #999;
+  border-radius: 4px;
+	outline: none;
+  &:focus {
+    border: 1px solid $orange;
+  }
+}
+
+div.footer {
+  font-size: 0.75em;
+  margin-bottom: 2em;
+}
+
+// Button styles
+.start-button {
+  padding: 10px 28px;
+  &:disabled {
+    background-color: #BEC4C0;
+    cursor: default;
+  }
+}
+
+.quit-button {
+  padding: 10px 28px;
+}
+
+#ready-button {
+	background-color: #00B50E;
+	color: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+
+	&:disabled {
+		background-color: #99CC99;
+		cursor: default;
+	}
+}
+
+// Round and Access Code top of game view
+.round, .access-code {
+  display: none;
+}
+
+// Show/Hide - hidden role styles
+.hidden-role-container {
+  position: relative;
+  width: 90%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  min-height: 14px;
+  margin-bottom: 1rem;
+}
+
+.toggle-role {
+  cursor: pointer;
+  position: absolute;
+  top: 1px;
+  right: -5px;
+  padding: 2px 10px 2px 60%;
+  line-height: 1em;
+  height: 23px;
+  border: none;
+  font-size: 10px;
+  text-transform: none;
+  color: black;
+  &:hover {
+    border: none;
+  }
+}
+
+.hidden-role {
+  padding: 5px 0;
+  margin: 0;
+}
+
+.hidden-info {
+  display: none;
+}
+
+.breakdown-container {
+  display: flex;;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 8px;
+  div {
+    // background-color: #eee;
+  }
+}
+
+// Game Board styles
+.policy-count td {
+	padding: 0 9px;
+	margin: 0;
+}
+
+.track-titles {
+  position: relative;
+  width: 90%;
+  min-height: 2em;
+  h3 {
+    position: absolute;
+    margin: 1em 0;
+  }
+  h3:nth-child(even) {
+    right: 16%;
+  }
+  h3:nth-child(odd) {
+    left: 16%;
+  }
+}
+
+.policydeck {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5em;
+  .draw {
+    margin-left: 0.5em;
+  }
+  .discard {
+    margin-right: 0.5em;
+  }
+  .pile {
+    display: block;
+    width: 2.4em;
+    height: 1.2em;
+    text-align: center;
+    line-height: 1em;
+    border-radius: 5px;
+    border: 1px solid #B1CCB2;
+  }
+  span {
+    color: #999;
+    font-size: 20px;
+    padding: 0 16px;
+  }
+}
+
+.game-board {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  cursor: default;
+  .board-divider {
+    padding: 0 16px;
+    font-size: 50px;
+    color: #999;
+  }
+  .tile {
+    display: block;
+    width: 1em;
+    height: 2em;
+    border-radius: 5px;
+  }
+}
+
+.liberal-board {
+  display: flex;
+  flex-direction: row;
+  div {
+    margin-left: 3px;
+    border: 1px solid $liberal-color;
+  }
+  .fill {
+    background-color: $liberal-color;
+  }
+}
+
+.fascist-board {
+  display: flex;
+  flex-direction: row;
+  div {
+    margin-right: 3px;
+    border: 1px solid $fascist-color;
+  }
+  .fill {
+    background-color: $fascist-color;
+  }
+  i {
+    font-size: 0.6em;
+    vertical-align: -35%;
+    color: $fascist-color;
+  }
+}
+
+// Election Tracker
+.election-tracker-container {
+  .fill {
+    background-color: $orange;
+  }
+  div {
+    display: inline-block;
+  }
+  div:first-child {
+    padding-right: 4px;
+  }
+  .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $orange;
+    color: $orange;
+  }
+  cursor: default;
+}
+
+// Ballot - reveal
+.voting-annoucement {
+  position: relative;
+  width: 90%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 11px 0;
+}
+
+.vote-reveal-container {
+  position: relative;
+  width: 90%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.toggle-reveal-vote {
+  cursor: pointer;
+  position: absolute;
+  top: 1px;
+  right: -5px;
+  padding: 2px 10px 25px 60%;
+  line-height: 1em;
+  height: 23px;
+  border: none;
+  font-size: 10px;
+  text-transform: none;
+  color: black;
+}
+
+.votelist {
+  display: none;
+}
+
+// Helpful Hints
+.hint-title {
+  margin-bottom: 1em;
+  span:hover {
+    color: $orange;
+  }
+}
+// Color Key
+.button-color-key {
+  // padding: 4px 10px;
+}
+
+.color-key-dropdown {
+  display: none;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  width: 75%;
+  text-align: left;
+  li {
+    list-style-type: none;
+  }
+  i {
+    padding-right: 10px;
+  }
+  .key-p {
+    color: $president-color;
+  }
+  .key-ep {
+    color: $president-candidate-color;
+  }
+  .key-c {
+    color: $chancellor-color;
+  }
+  .key-ec {
+    color: $chancellor-candidate-color;
+  }
+  .key-et {
+    color: $dead-candidate-color;
+  }
+  .key-d {
+    color: $dead-color;
+  }
+}
+
+// Presidential Powers Info
+.powers-button {
+  // margin-bottom: 12px;
+}
+
+.presidential-powers {
+  list-style-type: none;
+  display: none;
+  margin-top: 12px;
+}
+
+.power-name {
+  padding-top: 4px;
+  i {
+    color: $fascist-color;
+    padding-right: 6px;
+  }
+}
+
+.power-description {
+  display: none;
+}
+
+.win-condition-container {
+  width: 90%;
+}
+
+.win-condition-dropdown {
+  display: none;
+  div {
+    text-align: left;
+    list-style-type: none;
+  }
+  h3 {
+    margin-left: 5%;
+    margin-bottom: 0.5em;
+  }
+  li {
+    margin-left: 10%;
+    &::before {
+      content: ">";
+      color: $orange;
+      padding-right: 10px;
+    }
+  }
+  .or {
+    margin-left: 25%;
+    color: $orange;
+  }
+}
+
+// show must be lower in the css file to have presendence
+.show {
+  display: block;
+}
+
+.enact-message {
+  color: #00B50E;
+}
+
+.veto-unlocked {
+  i {
+    color: $fascist-color;
+    padding-right: 6px;
+  }
+  span {
+    color: $president-color;
+  }
+  font-size: 16px;
+  color: $chancellor-color;
+}
+
+// For testing todo notes
+// .todo {
+//   text-decoration: none;
+// }
+//
+// .strikethrough {
+//   text-decoration: line-through;
+// }
+
+// Table seating
+// https://css-tricks.com/snippets/sass/placing-items-circle/
+@mixin on-circle($item-count, $circle-size, $item-size) {
+	position: relative;
+	width:  $circle-size;
+	height: $circle-size;
+	border-radius: 50%;
+	padding: 0;
+	list-style: none;
+
+	> * {
+		display: block;
+		position: absolute;
+		top:  50%;
+		left: 50%;
+		margin: -($item-size / 2);
+		width:  $item-size;
+		height: $item-size;
+
+		$angle: (360 / $item-count);
+		$rot: 0;
+
+		@for $i from 1 through $item-count {
+			&:nth-of-type(#{$i}) {
+				transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+			}
+			$rot: $rot + $angle;
+		}
+	}
+}
+
+@for $i from 1 through 10 {
+	ul.circle-container-#{$i} {
+		@include on-circle($item-count: $i, $circle-size: 12em, $item-size: 4em);
+		margin: 4em auto;
+		border: solid 5px #ccc;
+
+		span {
+			background-color: #fff;
+			display: block;
+			width: 80%;
+			padding-top: 25%;
+			padding-bottom: 25%;
+			border-radius: 50%;
+			border: solid 5px #ccc;
+			transition: all .1s ease-out;
+			cursor: pointer;
+
+			&.president {
+				border-color: $president-color;
+			}
+      &.president-candidate {
+        border-color: lighten(#1B6DB2, 25%);
+      }
+			&.chancellor-candidate {
+				border-color: lighten(#797F06, 20%);
+			}
+			&.chancellor {
+				border-color: #797F06;
+			}
+      &.on-the-chopping-board {
+        border-color: lighten(#BF3630, 30%);
+      }
+      &.dead {
+        border-color: #BF3630;
+      }
+		}
+	}
+}
